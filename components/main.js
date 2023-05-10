@@ -250,7 +250,7 @@ export default function Main() {
                   id="startColorPicker"
                   type="color"
                   className="absolute top-0 left-0 w-12 h-12 rounded-full opacity-0 cursor-pointer"
-                  value={options.customTheme.colorStart || "#222"}
+                  value={options.customTheme.colorStart || "#00000222"}
                   onChange={(e) =>
                     setOptions({
                       ...options,
@@ -263,7 +263,7 @@ export default function Main() {
                 />
                 <label
                   style={{
-                    backgroundColor: options?.customTheme?.colorStart || "#222",
+                    backgroundColor: options?.customTheme?.colorStart || "#00000222",
                   }}
                   htmlFor="startColorPicker"
                   className="left-0 flex items-center justify-center w-12 h-12 rounded-full pointer-events-none text-white/50 group-hover:scale-[1.1] duration-100"
@@ -311,7 +311,7 @@ export default function Main() {
                   id="startColorPicker"
                   type="color"
                   className="absolute top-0 left-0 w-12 h-12 rounded-full opacity-0 cursor-pointer"
-                  value={options.customTheme.colorEnd || "#222"}
+                  value={options.customTheme.colorEnd || "#00000222"}
                   onChange={(e) =>
                     setOptions({
                       ...options,
@@ -324,7 +324,7 @@ export default function Main() {
                 />
                 <label
                   style={{
-                    backgroundColor: options?.customTheme?.colorEnd || "#222",
+                    backgroundColor: options?.customTheme?.colorEnd || "#00000222",
                   }}
                   htmlFor="startColorPicker"
                   className="left-0 flex items-center justify-center w-12  h-12 rounded-full pointer-events-none text-white/50 group-hover:scale-[1.1] duration-100"
