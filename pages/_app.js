@@ -59,14 +59,14 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Pika-Mod - 快速美化你的屏幕截图" />
         <meta property="og:url" content="https://ss.cx.ms/" />
-        <meta property="og:image" content="/public/meta-img.png" />
+        <meta property="og:image" content="/meta-img.png" />
         <meta property="og:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         {/* Twitter Open Graph */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Pika-Mod - 快速美化你的屏幕截图" />
         <meta property="twitter:url" content="https://ss.cx.ms/" />
-        <meta property="twitter:image" content="/public/meta-img.png" />
+        <meta property="twitter:image" content="/meta-img.png" />
         <meta property="twitter:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
