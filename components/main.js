@@ -11,6 +11,7 @@ import {
   GithubIcon,
   ColorPickerIcon,
   CoffeeIcon,
+  GlobeIcon,
 } from "ui/icons";
 
 const isValidHexColor = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
@@ -92,13 +93,13 @@ export default function Main() {
 
   const saveImage = async () => {
     if (!blob?.src) {
-      toast.error("Nothing to save, make sure to add a screenshot first!");
+      toast.error("没有能够保存的图像, 请先添加一个截图!");
       return;
     }
     if (window.pirsch) {
-      pirsch("🎉 Screenshot saved");
+      pirsch("🎉 已保存");
     }
-    let savingToast = toast.loading("Exporting image...");
+    let savingToast = toast.loading("导入图像中...");
     const scale = window.devicePixelRatio;
     domtoimage
       .toPng(wrapperRef.current, {
@@ -130,14 +131,14 @@ export default function Main() {
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            toast.success("Image exported!", { id: savingToast });
+            toast.success("图像已导出!", { id: savingToast });
           });
       });
   };
 
   const copyImage = () => {
     if (!blob?.src) {
-      toast.error("Nothing to copy, make sure to add a screenshot first!");
+      toast.error("没有能够复制的图像, 请先添加一个截图!");
       return;
     }
     const isSafari = /^((?!chrome|android).)*safari/i.test(
@@ -145,7 +146,7 @@ export default function Main() {
     );
     const isNotFirefox = navigator.userAgent.indexOf("Firefox") < 0;
     if (window.pirsch) {
-      pirsch("🙌 Screenshot copied");
+      pirsch("🙌 图像已复制到剪贴板");
     }
 
     if (isSafari) {
@@ -163,7 +164,7 @@ export default function Main() {
             }),
           }),
         ])
-        .then(() => toast.success("Image copied to clipboard"))
+        .then(() => toast.success("图像已复制到剪贴板"))
         .catch((err) =>
           // Error
           toast.success(err)
@@ -189,7 +190,7 @@ export default function Main() {
           }
         });
     } else {
-      alert("Firefox does not support this functionality");
+      alert("Firefox 不支持此功能");
     }
   };
 
@@ -242,7 +243,7 @@ export default function Main() {
           </div>
           <div className="relative mb-3">
             {/* Pick Start Color */}
-            <div className="mb-1">Pick first color</div>
+            <div className="mb-1">颜色一</div>
             <div className="flex items-center">
               <div className="relative group">
                 <input
@@ -268,7 +269,7 @@ export default function Main() {
                   className="left-0 flex items-center justify-center w-12 h-12 rounded-full pointer-events-none text-white/50 group-hover:scale-[1.1] duration-100"
                 >
                   <span className="font-mono text-xs text-white/80 drop-shadow">
-                    Pick
+                    选择
                   </span>
                 </label>
               </div>
@@ -303,7 +304,7 @@ export default function Main() {
 
           {/* Pick End Color */}
           <div>
-            <div className="mb-1">Pick second color</div>
+            <div className="mb-1">颜色二</div>
             <div className="flex items-center">
               <div className="relative group">
                 <input
@@ -329,7 +330,7 @@ export default function Main() {
                   className="left-0 flex items-center justify-center w-12  h-12 rounded-full pointer-events-none text-white/50 group-hover:scale-[1.1] duration-100"
                 >
                   <span className="font-mono text-xs text-white/80 drop-shadow">
-                    Pick
+                    选择
                   </span>
                 </label>
               </div>
@@ -378,7 +379,7 @@ export default function Main() {
           <div className="relative flex flex-row flex-wrap items-start justify-start space-y-5 lg:items-start lg:flex-col lg:space-y-4">
             <div className="flex items-center justify-between w-full">
               <div className="text-sm font-semibold dark:text-white">
-                Aspect Ratio
+                长宽比
               </div>
               <div>
                 <select
@@ -388,14 +389,14 @@ export default function Main() {
                     setOptions({ ...options, aspectRatio: e.target.value })
                   }
                 >
-                  <option value="aspect-auto">Auto</option>
-                  <option value="aspect-square">Square</option>
+                  <option value="aspect-auto">自动</option>
+                  <option value="aspect-square">1:1</option>
                 </select>
               </div>
             </div>
             <div className="flex items-center justify-between w-full">
               <div className="text-sm font-semibold dark:text-white">
-                Browser Wrapper
+                控制栏
               </div>
               <div>
                 <select
@@ -405,15 +406,15 @@ export default function Main() {
                     setOptions({ ...options, browserBar: e.target.value })
                   }
                 >
-                  <option value="hidden">None</option>
-                  <option value="light">Light</option>
-                  <option value="dark">Dark</option>
+                  <option value="hidden">无</option>
+                  <option value="light">浅色</option>
+                  <option value="dark">暗色</option>
                 </select>
               </div>
             </div>
             <div className="flex items-center justify-between w-full">
               <div className="text-sm font-semibold dark:text-white">
-                Padding
+                填充
               </div>
               <div>
                 <select
@@ -423,23 +424,23 @@ export default function Main() {
                     setOptions({ ...options, padding: e.target.value })
                   }
                 >
-                  <option value="p-0">None</option>
-                  <option value="p-10">Small</option>
-                  <option value="p-20">Medium</option>
-                  <option value="p-32">Large</option>
+                  <option value="p-0">无</option>
+                  <option value="p-10">小</option>
+                  <option value="p-20">中</option>
+                  <option value="p-32">大</option>
                 </select>
               </div>
             </div>
             <div className="">
               <div className="relative flex items-center pb-2 text-sm font-semibold dark:text-white">
-                Background
+                背景
                 <div className="relative">
                   <div
                     onClick={() => setBGPicker(!bgPicker)}
                     className="flex items-center px-2 ml-2 border border-gray-400 rounded-lg cursor-pointer bg-white/70 opacity-70 hover:opacity-100 dark:bg-pink-900/80 dark:border-red-600 dark:text-gray-300"
                   >
                     <span className="w-3 h-3 mr-1">{ColorPickerIcon}</span>
-                    Pick
+                    调色板
                   </div>
                 </div>
                 {pickBackground()}
@@ -475,7 +476,7 @@ export default function Main() {
             </div>
             <div className="flex items-center justify-between w-full">
               <div className="text-sm font-semibold dark:text-white">
-                Wrapper Rounded Corners
+                背景圆角
               </div>
               <div>
                 <select
@@ -485,16 +486,16 @@ export default function Main() {
                     setOptions({ ...options, roundedWrapper: e.target.value })
                   }
                 >
-                  <option value="rounded-none">None</option>
-                  <option value="rounded-lg">Small</option>
-                  <option value="rounded-xl">Medium</option>
-                  <option value="rounded-3xl">Large</option>
+                  <option value="rounded-none">无</option>
+                  <option value="rounded-lg">小</option>
+                  <option value="rounded-xl">中</option>
+                  <option value="rounded-3xl">大</option>
                 </select>
               </div>
             </div>
             <div className="flex items-center justify-between w-full">
               <div className="text-sm font-semibold dark:text-white">
-                Screenshot Rounded Corners
+                截图圆角
               </div>
               <div>
                 <select
@@ -504,16 +505,16 @@ export default function Main() {
                     setOptions({ ...options, rounded: e.target.value })
                   }
                 >
-                  <option value="rounded-none">None</option>
-                  <option value="rounded-lg">Small</option>
-                  <option value="rounded-xl">Medium</option>
-                  <option value="rounded-3xl">Large</option>
+                  <option value="rounded-none">无</option>
+                  <option value="rounded-lg">小</option>
+                  <option value="rounded-xl">中</option>
+                  <option value="rounded-3xl">大</option>
                 </select>
               </div>
             </div>
             <div className="flex items-center justify-between w-full">
               <div className="text-sm font-semibold dark:text-white">
-                Screenshot Position
+                截图位置
               </div>
               <div>
                 <select
@@ -523,17 +524,17 @@ export default function Main() {
                     setOptions({ ...options, position: e.target.value })
                   }
                 >
-                  <option value="">Center</option>
-                  <option value="pl-0 pt-0">Top left</option>
-                  <option value="pt-0 pr-0">Top right</option>
-                  <option value="pb-0 pl-0">Bottom left</option>
-                  <option value="pb-0 pr-0">Bottom right</option>
+                  <option value="">中心</option>
+                  <option value="pl-0 pt-0">左上</option>
+                  <option value="pt-0 pr-0">右上</option>
+                  <option value="pb-0 pl-0">左下</option>
+                  <option value="pb-0 pr-0">右下</option>
                 </select>
               </div>
             </div>
             <div className="flex items-center justify-between w-full">
               <div className="text-sm font-semibold dark:text-white">
-                Shadow
+                阴影
               </div>
               <div>
                 <select
@@ -543,15 +544,15 @@ export default function Main() {
                     setOptions({ ...options, shadow: e.target.value })
                   }
                 >
-                  <option value="shadow-none">None</option>
-                  <option value="shadow-lg">Small</option>
-                  <option value="shadow-xl">Medium</option>
-                  <option value="shadow-2xl">Large</option>
+                  <option value="shadow-none">无</option>
+                  <option value="shadow-lg">小</option>
+                  <option value="shadow-xl">中</option>
+                  <option value="shadow-2xl">大</option>
                 </select>
               </div>
             </div>
             <div className="flex items-center justify-between w-full">
-              <div className="text-sm font-semibold dark:text-white">Noise</div>
+              <div className="text-sm font-semibold dark:text-white">噪点</div>
               <div>
                 <input
                   type="checkbox"
@@ -570,7 +571,7 @@ export default function Main() {
                 title="Use Ctrl/Cmd + C to copy the image"
               >
                 <span className="w-6 h-6 mr-2">{ClipboardIcon}</span>
-                Copy
+                复制
               </div>
               <div
                 className="flex items-center justify-center px-4 py-2 hover:scale-[1.03] duration-200 text-base lg:text-lg font-semibold bg-pink-600/90 dark:bg-pink-600/90 text-pink-200 rounded-lg shadow cursor-pointer border border-pink-600 w-full ml-4"
@@ -578,7 +579,7 @@ export default function Main() {
                 onClick={saveImage}
               >
                 <span className="w-6 h-6 mr-2">{SaveIcon}</span>
-                Save
+                保存
               </div>
             </div>
             <div
@@ -586,21 +587,21 @@ export default function Main() {
               className="flex items-center justify-center w-full px-3 py-1 mx-auto mt-4 text-sm text-pink-400 rounded-lg cursor-pointer"
             >
               <span className="w-4 h-4 mr-1">{ResetIcon}</span>
-              Reset
+              重置
             </div>
             <div className="hidden mx-auto text-sm text-center opacity-50 dark:text-white lg:block">
               <div className="mb-1">
-                Use{" "}
+                {" "}
                 <span className="px-2 py-px font-mono rounded-lg dark:bg-black/40 bg-white/80">
                   Cmd/Ctrl+C
                 </span>{" "}
-                to copy or
+                复制到剪贴板
               </div>
               <div>
                 <span className="px-2 py-px font-mono rounded-lg bg-white/80 dark:bg-black/40">
                   Cmd/Ctrl+S
                 </span>{" "}
-                to save output image
+                导出到本地
               </div>
             </div>
           </div>
@@ -669,6 +670,15 @@ export default function Main() {
       </a>
       <span className="hidden px-2 lg:block">-</span>
       <a
+        href="https://cx.ms"
+        target="_blank"
+        className="flex items-center hover:underline"
+      >
+        <span className="w-5 h-5 mx-1">{GlobeIcon}</span>
+        Modified by CXPLAY
+      </a>
+      <span className="hidden px-2 lg:block">-</span>
+      <a
         href="https://github.com/rishimohan/pika"
         target="_blank"
         className="flex items-center mt-2 hover:underline lg:mt-0"
@@ -676,6 +686,7 @@ export default function Main() {
         <span className="w-5 h-5 mx-1">{GithubIcon}</span>
         View Code on Github
       </a>
+      {/*
       <span className="hidden px-2 lg:block">-</span>
       <a
         href="https://www.buymeacoffee.com/thelifeofrishi"
@@ -685,6 +696,7 @@ export default function Main() {
         <span className="w-5 h-5 mx-1">{CoffeeIcon}</span>
         Buy me a coffee
       </a>
+      */}
     </div>
   );
 
@@ -781,9 +793,8 @@ export default function Main() {
                   onChange={onPaste}
                 />
                 <span className="w-6 h-6 mb-2">{PasteIcon}</span>
-                <p>Paste your screenshot(Cmd/Ctrl+V)</p>
-                <p>or drag and drop your screenshot here</p>
-                <p>or click here to add one</p>
+                <p>点击选择或拖拽截图至此处</p>
+                <p>或使用 Cmd/Ctrl+V 粘贴截图</p>
               </label>
             </div>
           )}
