@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Pika-Mod - 快速美化你的屏幕截图</title>
-        <meta name="description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
+        <meta name="description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖拽和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
         <meta name="author" content="Pika-Mod" />
         <meta name="copyright" content="Pika-Mod"/>
         <meta name="robots" content="index, follow" />
@@ -60,14 +60,14 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="Pika-Mod - 快速美化你的屏幕截图" />
         <meta property="og:url" content="https://ss.cx.ms/" />
         <meta property="og:image" content="/meta-img.png" />
-        <meta property="og:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
+        <meta property="og:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖拽添加图像文件, 或通过剪贴板粘贴截图, 亦或是通过本地选择图像! 快速使你的屏幕截图变得美观." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         {/* Twitter Open Graph */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Pika-Mod - 快速美化你的屏幕截图" />
         <meta property="twitter:url" content="https://ss.cx.ms/" />
         <meta property="twitter:image" content="/meta-img.png" />
-        <meta property="twitter:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
+        <meta property="twitter:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖拽添加图像文件, 或通过剪贴板粘贴截图, 亦或是通过本地选择图像! 快速使你的屏幕截图变得美观." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
