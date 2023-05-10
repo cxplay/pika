@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
         <meta name="author" content="Pika-Mod" />
         <meta name="copyright" content="Pika-Mod"/>
-        <meta name="robots" content="index, follow"></meta>
+        <meta name="robots" content="index, follow" />
         {/*
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pika.rishimohan.me" />
@@ -60,14 +60,14 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="Pika-Mod - 快速美化你的屏幕截图" />
         <meta property="og:url" content="https://ss.cx.ms/" />
         <meta property="og:image" content="/public/meta-img.png" />
-        <meta property="og:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观."></meta>
+        <meta property="og:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         {/* Twitter Open Graph */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content="Pika-Mod - 快速美化你的屏幕截图" />
         <meta property="twitter:url" content="https://ss.cx.ms/" />
         <meta property="twitter:image" content="/public/meta-img.png" />
-        <meta property="twitter:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观."></meta>
+        <meta property="twitter:description" content="使用 Pika 快速美化你的屏幕截图, 立刻通过拖转和添加图像文件或剪贴板粘贴截图! 快速使你的屏幕截图变得美观." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -146,8 +146,7 @@ function MyApp({ Component, pageProps }) {
           */}
           {/* Google tag(gtag.js) */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2CJRYMYJW"></script>
-          <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments) } gtag('js', new Date()); gtag('config', 'G-J2CJRYMYJW');
-          </script>
+          <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments) } gtag('js', new Date()); gtag('config', 'G-J2CJRYMYJW');` }}></script>
         </>
       ) : (
         ""
