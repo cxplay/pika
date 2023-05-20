@@ -145,6 +145,7 @@ function MyApp({ Component, pageProps }) {
           />
           */}
           {/* Google tag(gtag.js) */}
+          <script async src="https://analytics.cx.ms/script.js" data-website-id="03c3bb23-b0ed-4f8a-af2b-a38098068180"></script>
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2CJRYMYJW"></script>
           <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments) } gtag('js', new Date()); gtag('config', 'G-J2CJRYMYJW');` }}></script>
         </>
